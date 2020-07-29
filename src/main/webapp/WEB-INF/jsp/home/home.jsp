@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h2>Hello World!</h2>
+        <h2>Home page</h2>
+        <a href="${linkTo[CompanyController].companies}">Companies</a>
     </body>
 </html>
