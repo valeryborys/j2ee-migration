@@ -1,0 +1,33 @@
+# Directories
+build/
+bin/
+target/
+libs/
+tmp/
+node_modules/
+
+# Files
+*.class
+ 
+# Package Files
+*.jar
+*.war
+*.ear
+*.db
+
+# IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+# OS Files
+.DS_Store
+
+
