@@ -17,7 +17,6 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull
     @Size(min = 4, max = 100)
     @Column(name = "name", nullable = false)
     private String name;
