@@ -30,8 +30,7 @@ public class UserCtx implements Serializable {
         return isInitialized;
     }
 
-    public boolean isLoggedIn()
-    {
+    public boolean isLoggedIn() {
         return appUser != null;
     }
 }

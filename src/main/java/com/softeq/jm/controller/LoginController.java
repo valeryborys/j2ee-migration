@@ -9,6 +9,7 @@ import com.softeq.jm.commons.core.UserCtx;
 import com.softeq.jm.commons.web.auth.PublicResource;
 import com.softeq.jm.mapper.UserMapper;
 import com.softeq.jm.model.User;
+import com.softeq.jm.service.RememberMeService;
 import com.softeq.jm.service.UserService;
 
 import javax.inject.Inject;
@@ -30,6 +31,9 @@ public class LoginController implements Serializable {
     @Inject
     private HttpServletResponse response;
 
+    @Inject
+    private RememberMeService rememberMeService;
+
     @Get
     public void login() {
         result.include("user", new User());
@@ -45,6 +49,7 @@ public class LoginController implements Serializable {
         }
         AppUser appUser = UserMapper.getAppUser(user);
         userCtx.login(appUser);
+        rememberMeService.rememberUser(appUser);
         result.redirectTo(HomeController.class).index();
     }
 }

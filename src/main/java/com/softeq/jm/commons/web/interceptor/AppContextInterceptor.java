@@ -14,8 +14,7 @@ public class AppContextInterceptor {
 
     @BeforeCall
     public void initContext() {
-        if (userCtx.isInitialized())
-        {
+        if (userCtx.isInitialized()) {
             return;
         }
         userCtx.initialize();

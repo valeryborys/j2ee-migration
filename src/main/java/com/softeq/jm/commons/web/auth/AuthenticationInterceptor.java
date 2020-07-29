@@ -6,13 +6,13 @@ import br.com.caelum.vraptor.Intercepts;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.controller.ControllerMethod;
 import com.softeq.jm.commons.core.UserCtx;
-import com.softeq.jm.commons.web.interceptor.AppContextInterceptor;
+import com.softeq.jm.commons.web.interceptor.RememberMeInterceptor;
 import com.softeq.jm.controller.LoginController;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
-@Intercepts(after = AppContextInterceptor.class)
+@Intercepts(after = RememberMeInterceptor.class)
 @RequestScoped
 public class AuthenticationInterceptor {
 
@@ -29,7 +29,7 @@ public class AuthenticationInterceptor {
 
     @BeforeCall
     public void checkAuth() {
-        if(!userCtx.isLoggedIn()) {
+        if (!userCtx.isLoggedIn()) {
             forwardToLoginPage();
         }
     }
