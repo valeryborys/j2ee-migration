@@ -3,5 +3,6 @@
 <html>
     <body>
         <h2>Home page</h2>
+        <a href="${linkTo[CompanyController].companies}">Companies</a>
     </body>
 </html>
