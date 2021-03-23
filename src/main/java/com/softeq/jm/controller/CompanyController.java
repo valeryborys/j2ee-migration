@@ -8,6 +8,7 @@ import br.com.caelum.vraptor.validator.Validator;
 import com.softeq.jm.model.Company;
 import com.softeq.jm.service.CompanyService;
 
+
 import javax.inject.Inject;
 import javax.validation.Valid;
 

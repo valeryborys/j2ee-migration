@@ -1,10 +1,10 @@
-package com.softeq.jm.service;
+package com.softeq.jm.repository;
 
 import com.softeq.jm.model.Company;
 
 import java.util.List;
 
-public interface CompanyService {
+public interface CompanyRepository {
     void persist(Company company);
     List<Company> findAll();
 }
