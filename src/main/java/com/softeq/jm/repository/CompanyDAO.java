@@ -7,11 +7,9 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-//@Transactional
 public class CompanyDAO implements CompanyRepository{
 
     private static final String HQL_FROM_COMPANY = "from Company";
@@ -41,7 +39,6 @@ public class CompanyDAO implements CompanyRepository{
         } catch (HibernateException e) {
             session = sessionFactory.openSession();
         }
-        List<Company> list = (List<Company>) session.createQuery(HQL_FROM_COMPANY, Company.class).getResultList();
-        return list;
+        return session.createQuery(HQL_FROM_COMPANY, Company.class).getResultList();
     }
 }

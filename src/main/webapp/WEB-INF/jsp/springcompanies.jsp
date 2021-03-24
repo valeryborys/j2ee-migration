@@ -23,12 +23,10 @@
     </c:if>
     <br/>
 
-
                             <form:hidden path="id" />
         <span>Name: </span><form:input path="name" /><br/><br/>
         <span>Phone: </span><form:input path="phone" /><br/><br/>
         <span>Website: </span><form:input path="website" /><br/><br/>
-<%--    <input type="submit" value="Submit"/>--%>
     <button>Add company</button>
 </form:form>
 </body>
