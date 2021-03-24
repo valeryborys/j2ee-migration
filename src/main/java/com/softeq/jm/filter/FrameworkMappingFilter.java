@@ -17,7 +17,6 @@ public class FrameworkMappingFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         String contextPath = req.getContextPath();
-        System.out.println(contextPath);
         if (!contextPath.equals(PATTERN)){
             req.getServletContext().getRequestDispatcher("").forward(servletRequest,servletResponse);
         }
