@@ -27,12 +27,13 @@ public class SpringCompanyController {
     public String findAll(Model model) {
         List<Company> all = springCompanyService.findAll();
         model.addAttribute("companies", all);
+        model.addAttribute("company", new Company());
         return "springcompanies";
     }
 
     @PostMapping
-    public String addCompany(@ModelAttribute("companies") Company company){
+    public String addCompany(@ModelAttribute("company") Company company){
         springCompanyService.persist(company);
-        return "springcompanies";
+        return "redirect:/cm";
     }
 }

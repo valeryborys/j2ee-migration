@@ -1,10 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <body>
-<h1><fmt:message key="companies"/></h1>
+<h1><fmt:message key="companies"/> using Spring</h1>
 <table>
     <c:forEach items="${companies}" var="item">
         <tr>
@@ -14,17 +15,21 @@
         </tr>
     </c:forEach>
 </table>
-<form action="/cm" method="post">
+<form:form action="/jm/cm" modelAttribute="company" method="POST">
     <c:if test="${not empty errors}">
         <c:forEach var="error" items="${errors}">
             ${error.message}
         </c:forEach>
     </c:if>
     <br/>
-    <span>Name: </span><input type="text" name="company.name"/><br/><br/>
-    <span>Phone: </span><input type="text" name="company.phone"/><br/><br/>
-    <span>Website: </span><input type="text" name="company.website"/><br/><br/>
+
+
+                            <form:hidden path="id" />
+        <span>Name: </span><form:input path="name" /><br/><br/>
+        <span>Phone: </span><form:input path="phone" /><br/><br/>
+        <span>Website: </span><form:input path="website" /><br/><br/>
+<%--    <input type="submit" value="Submit"/>--%>
     <button>Add company</button>
-</form>
+</form:form>
 </body>
 </html>
