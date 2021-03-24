@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/cm/")
+@RequestMapping("/cm")
 public class SpringCompanyController {
 
     private final SpringCompanyService springCompanyService;
@@ -21,10 +23,16 @@ public class SpringCompanyController {
         this.springCompanyService = springCompanyService;
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public String findAll(Model model) {
         List<Company> all = springCompanyService.findAll();
         model.addAttribute("companies", all);
+        return "springcompanies";
+    }
+
+    @PostMapping
+    public String addCompany(@ModelAttribute("companies") Company company){
+        springCompanyService.persist(company);
         return "springcompanies";
     }
 }

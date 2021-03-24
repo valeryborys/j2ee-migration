@@ -61,6 +61,6 @@
     </bean>
 
     <!-- Enable configuration of transactional behavior based on annotations -->
-    <tx:annotation-driven transaction-manager="myTransactionManager"/>
+    <tx:annotation-driven proxy-target-class="true" transaction-manager="myTransactionManager"/>
 
 </beans>

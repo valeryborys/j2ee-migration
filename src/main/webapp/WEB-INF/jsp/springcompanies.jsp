@@ -14,5 +14,17 @@
         </tr>
     </c:forEach>
 </table>
+<form action="/cm" method="post">
+    <c:if test="${not empty errors}">
+        <c:forEach var="error" items="${errors}">
+            ${error.message}
+        </c:forEach>
+    </c:if>
+    <br/>
+    <span>Name: </span><input type="text" name="company.name"/><br/><br/>
+    <span>Phone: </span><input type="text" name="company.phone"/><br/><br/>
+    <span>Website: </span><input type="text" name="company.website"/><br/><br/>
+    <button>Add company</button>
+</form>
 </body>
 </html>

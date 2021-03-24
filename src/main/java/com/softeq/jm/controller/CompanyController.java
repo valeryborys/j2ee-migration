@@ -10,10 +10,13 @@ import com.softeq.jm.service.CompanyService;
 
 
 import javax.inject.Inject;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
 public class CompanyController {
+
 
     @Inject
     private Validator validator;
@@ -26,6 +29,7 @@ public class CompanyController {
 
     @Get
     public void companies() {
+
         result.include("companies", companyService.findAll());
     }
 
