@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 public class FrameworkMappingFilter implements Filter {
-    private static final String PATTERN = "/jm";
+    private static final String PATTERN = "/cm";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -17,7 +17,7 @@ public class FrameworkMappingFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         String contextPath = req.getContextPath();
-        if (!contextPath.equals(PATTERN)){
+        if (contextPath.contains(PATTERN)){
             req.getServletContext().getRequestDispatcher("").forward(servletRequest,servletResponse);
         }
         filterChain.doFilter(servletRequest, servletResponse);
