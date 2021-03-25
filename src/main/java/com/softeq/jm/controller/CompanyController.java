@@ -10,8 +10,6 @@ import com.softeq.jm.service.CompanyService;
 
 
 import javax.inject.Inject;
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller

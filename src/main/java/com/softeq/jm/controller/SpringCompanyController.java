@@ -1,6 +1,7 @@
 package com.softeq.jm.controller;
 
 import com.softeq.jm.model.Company;
+import com.softeq.jm.model.User;
 import com.softeq.jm.service.SpringCompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,5 +36,11 @@ public class SpringCompanyController {
     public String addCompany(@ModelAttribute("company") Company company){
         springCompanyService.persist(company);
         return "redirect:/cm";
+    }
+
+    @GetMapping("registration")
+    public String registrationPage(Model model){
+        model.addAttribute("user", new User());
+        return "registration";
     }
 }

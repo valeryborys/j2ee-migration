@@ -1,19 +1,20 @@
 package com.softeq.jm.controller;
 
-
 import com.softeq.jm.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/cm")
+@RequestMapping("/cmregistration")
 public class SpringHomeController {
 
-    @GetMapping("/home")
-    public String goHome(){
-        return "home";
+    @GetMapping
+    public String registrationPage(Model model){
+        model.addAttribute("user", new User());
+        return "registration";
     }
 
 }
