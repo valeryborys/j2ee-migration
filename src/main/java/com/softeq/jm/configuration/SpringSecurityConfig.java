@@ -40,6 +40,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter implement
     protected void configure(AuthenticationManagerBuilder auth) {
         auth.authenticationProvider(authProvider());
     }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -62,3 +63,4 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter implement
                 .logoutSuccessUrl("/cm/login");
     }
 }
+//not().fullyAuthenticated()

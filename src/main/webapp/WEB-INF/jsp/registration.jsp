@@ -1,15 +1,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <body>
     <div class="container">
-        <form class="form-signin" method="post" action="/jm/cm/registration">
-            <h2 class="form-signin-heading">Login</h2>
+        <form:form method="post" action="/jm/cm/registration" modelAttribute="user">
+            <form:hidden path="id" />
+            <h2>Register</h2>
+
             <p>
-                <label for="username">E-mail</label>
-                <input type="text" id="username" name="username" placeholder="E-mail" required>
+                <label for="email">E-mail</label>
+                <input type="text" id="email" name="email" placeholder="E-mail" required>
             </p>
             <p>
                 <label for="firstName">First Name</label>
@@ -23,8 +26,9 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
             </p>
+            <c:out value="${emailError}" />
             <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-        </form>
+            </form:form>
     </div>
     </body>
 </html>

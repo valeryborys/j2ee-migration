@@ -37,10 +37,4 @@ public class SpringCompanyController {
         springCompanyService.persist(company);
         return "redirect:/cm";
     }
-
-    @GetMapping("registration")
-    public String registrationPage(Model model){
-        model.addAttribute("user", new User());
-        return "registration";
-    }
 }
